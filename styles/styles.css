@@ -1,0 +1,27 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #333; /* Set the background color */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+/* Navbar Links */
+.navbar a {
+    float: left; /* Float the links to the left */
+    display: block; /* Display them as block elements */
+    color: white; /* Text color */
+    text-align: center; /* Center the text */
+    padding: 14px 16px; /* Add padding around the links */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+/* Navbar Links on Hover */
+.navbar a:hover {
+    background-color: #ddd; /* Change background color on hover */
+    color: black; /* Change text color on hover */
+}
+
+/* Active Link */
+.navbar a.active {
+    background-color: #4CAF50; /* Set background color for the active link */
+    color: white; /* Text color for the active link */
+}
