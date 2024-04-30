@@ -1,0 +1,24 @@
+<template id="navbar-template">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </template>
+  
+  <script>
+    class NavbarComponent extends HTMLElement {
+      constructor() {
+        super();
+        const template = document.getElementById('navbar-template').content;
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        shadowRoot.appendChild(template.cloneNode(true));
+      }
+    }
+    customElements.define('navbar-component', NavbarComponent);
+  </script>
+  
