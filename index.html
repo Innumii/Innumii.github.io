@@ -10,8 +10,7 @@
   </head>
   <body>
     <header>
-      <link rel="import" href="components/navbar.html">
-      <navbar-component></navbar-component>
+      <div id="navbar-container"></div>
     </header>
     <main>
       <section>
@@ -29,5 +28,15 @@
     <footer>
       <p>© 2023 My Awesome Website</p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          fetch("components/navbar.html")
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById("navbar-container").innerHTML = html;
+          });
+      });
+  </script>
   </body>
 </html>
