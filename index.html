@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Linus | Resume</title>
+    <title>Page Title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/index.css">
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
 
   <body>
 
     <div class="header">
-      <h1>Linus</h1>
-      <p>Resume and portfolio</p>
+      <h1>My Website</h1>
+      <p>A website created by me.</p>
     </div>
     
     <div class="navbar">
       <a href="pages/about.html">about</a>
       <a href="pages/projects.html">projects</a>
-      <a href="pages/resume.html">resume</a>
-      <a href="assets/linus-resume.pdf" class="right" target="_blank" rel="noopener noreferrer">download PDF</a>
+      <a href="#">Link</a>
+      <a href="#" class="right">Link</a>
     </div>
 
-    <main class="content">
-      <section class="resume-card">
-        <h2>Resume</h2>
-        <p>Preview below. If the viewer does not load, use the download button.</p>
-        <iframe
-          src="assets/linus-resume.pdf"
-          title="Linus resume"
-          class="resume-frame"
-        ></iframe>
-      </section>
-    </main>
+    <include src="components/navbar.html"></include>
 
     <div class="footer">
-      <h2>Thanks for visiting</h2>
+      <h2>Footer</h2>
     </div>
 
   </body>
