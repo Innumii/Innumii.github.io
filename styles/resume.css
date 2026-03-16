@@ -1,0 +1,208 @@
+/* ── CSS custom properties: light (default) / dark ── */
+:root {
+  --r-bg:       #ffffff;
+  --r-color:    #000000;
+  --r-border:   #000000;
+  --r-link:     #000000;
+  --r-muted:    #444444;
+  --nav-bg:     #333333;
+  --nav-link:   #ffffff;
+  --nav-hover-bg:    #dddddd;
+  --nav-hover-color: #000000;
+  --foot-bg:    #dddddd;
+  --foot-color: #000000;
+}
+
+[data-theme="dark"] {
+  --r-bg:       #0d1117;
+  --r-color:    #c9d1d9;
+  --r-border:   #555555;
+  --r-link:     #8cb4ff;
+  --r-muted:    #8b949e;
+  --nav-bg:     #161b22;
+  --nav-link:   #c9d1d9;
+  --nav-hover-bg:    #2d333b;
+  --nav-hover-color: #ffffff;
+  --foot-bg:    #161b22;
+  --foot-color: #8b949e;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ── */
+body {
+  font-family: "Calibri", "Carlito", Arial, sans-serif;
+  background: var(--r-bg);
+  color: var(--r-color);
+  font-size: 13.5px;
+  line-height: 1.45;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--r-link);
+  text-decoration: underline;
+}
+
+/* ── Navbar overrides for resume page ── */
+.navbar {
+  background-color: var(--nav-bg);
+  transition: background-color 0.3s;
+}
+
+.navbar a {
+  color: var(--nav-link);
+}
+
+.navbar a:hover {
+  background-color: var(--nav-hover-bg);
+  color: var(--nav-hover-color);
+}
+
+/* ── Footer override ── */
+.footer {
+  background: var(--foot-bg);
+  color: var(--foot-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── Dark mode toggle strip ── */
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 48px 0;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.theme-toggle-wrap span {
+  font-size: 12px;
+  color: var(--r-muted);
+  transition: color 0.3s;
+}
+
+/* ── Resume layout ── */
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 48px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--r-color);
+}
+
+.contact-line {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 2px;
+  color: var(--r-color);
+}
+
+.summary {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 4px;
+  color: var(--r-color);
+}
+
+.section-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1.5px solid var(--r-border);
+  padding-bottom: 1px;
+  margin-bottom: 5px;
+  margin-top: 11px;
+  color: var(--r-color);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.entry-header + .entry-header,
+.entry-header--spaced {
+  margin-top: 7px;
+}
+
+.company {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--r-color);
+}
+
+.date {
+  font-size: 13px;
+  color: var(--r-color);
+}
+
+.role {
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 1px;
+  color: var(--r-color);
+}
+
+ul.bullets {
+  padding-left: 18px;
+  margin-bottom: 1px;
+}
+
+ul.bullets li {
+  list-style-type: disc;
+  font-size: 13px;
+  margin-bottom: 1px;
+  line-height: 1.45;
+  color: var(--r-color);
+}
+
+.skills-line {
+  font-size: 13px;
+  margin-top: 2px;
+  color: var(--r-color);
+}
+
+.skills-category {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.skills-category--spaced {
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+/* ── Print ── */
+@media print {
+  .page {
+    padding: 20px 36px;
+  }
+
+  .theme-toggle-wrap {
+    display: none;
+  }
+
+  .navbar,
+  .footer {
+    display: none;
+  }
+}
