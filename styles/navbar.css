@@ -1,12 +1,13 @@
 /* Style the top navigation bar */
 .navbar {
-  overflow: hidden; /* Hide overflow */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: #333; /* Dark background color */
 }
 
 /* Style the navigation bar links */
 .navbar a {
-  float: left; /* Make sure that the links stay side-by-side */
   display: block; /* Change the display to block, for responsive reasons (see below) */
   color: white; /* White text color */
   text-align: center; /* Center the text */
@@ -16,7 +17,30 @@
 
 /* Right-aligned link */
 .navbar a.right {
-  float: right; /* Float a link to the right */
+  margin-left: auto;
+}
+
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 12px;
+}
+
+.navbar-right .theme-label {
+  color: #d9dde4;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.navbar-right .bb8-toggle {
+  --toggle-size: 8px;
+  margin-top: 0;
+}
+
+.navbar-right .bb8-toggle__container {
+  box-shadow: none;
 }
 
 /* Change color on hover/mouse-over */
@@ -28,8 +52,14 @@
 @media (max-width: 700px) {
   .navbar a,
   .navbar a.right {
-    float: none;
     width: 100%;
     text-align: left;
+    margin-left: 0;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 20px 12px;
   }
 }
