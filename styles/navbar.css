@@ -24,18 +24,19 @@
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   padding-right: 12px;
+  flex-shrink: 0;
 }
 
 .navbar-right .theme-label {
   color: #d9dde4;
-  font-size: 12px;
+  font-size: 11px;
   white-space: nowrap;
 }
 
 .navbar-right .bb8-toggle {
-  --toggle-size: 8px;
+  --toggle-size: 5px;
   margin-top: 0;
 }
 
@@ -59,7 +60,7 @@
 
   .navbar-right {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
     padding: 10px 20px 12px;
   }
 }
