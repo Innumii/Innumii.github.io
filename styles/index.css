@@ -9,3 +9,54 @@
   .header h1 {
     font-size: 40px;
   }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+  }
+
+  .content {
+    width: min(1100px, 92%);
+    margin: 24px auto 36px;
+  }
+
+  .resume-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+  }
+
+  .resume-card h1,
+  .resume-card h2 {
+    margin-top: 0;
+  }
+
+  .resume-frame {
+    width: 100%;
+    height: 78vh;
+    min-height: 500px;
+    border: 1px solid #d8dde6;
+    border-radius: 8px;
+    background: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      padding: 48px 24px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+    }
+
+    .resume-card {
+      padding: 16px;
+    }
+
+    .resume-frame {
+      height: 70vh;
+      min-height: 420px;
+    }
+  }
