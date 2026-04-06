@@ -1,0 +1,16 @@
+@media (max-width: 940px) {
+  .experience-item {
+    grid-template-columns: 1fr;
+  }
+
+  .company-logo {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 680px) {
+  .experience-item {
+    gap: 0.8rem;
+  }
+}

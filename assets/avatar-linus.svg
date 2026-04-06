@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="256" fill="#e5e7ff"/>
+  <circle cx="256" cy="208" r="110" fill="#c7d2fe"/>
+  <path d="M96 430c26-82 90-126 160-126s134 44 160 126" fill="#818cf8"/>
+  <text x="256" y="285" text-anchor="middle" font-size="108" font-family="Trebuchet MS, sans-serif" fill="#312e81" font-weight="700">LP</text>
+</svg>

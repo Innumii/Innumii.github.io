@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#eef2ff"/>
+  <rect x="70" y="90" width="1060" height="520" rx="22" fill="#4f46e5"/>
+  <text x="140" y="230" font-size="64" fill="#ffffff" font-family="Trebuchet MS, sans-serif" font-weight="700">Speed Card Game</text>
+  <text x="140" y="300" font-size="34" fill="#dbeafe" font-family="Trebuchet MS, sans-serif">Real-time multiplayer · Go · C++ · Terraform</text>
+  <rect x="140" y="360" width="170" height="120" rx="12" fill="#ffffff"/>
+  <rect x="330" y="360" width="170" height="120" rx="12" fill="#ffffff"/>
+  <rect x="520" y="360" width="170" height="120" rx="12" fill="#ffffff"/>
+</svg>
