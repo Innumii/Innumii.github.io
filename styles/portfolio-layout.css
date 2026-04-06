@@ -82,31 +82,6 @@
   align-items: center;
 }
 
-.avatar-wrap {
-  position: relative;
-  width: 116px;
-  height: 116px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--accent);
-  background: var(--surface);
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.avatar-wrap::after {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  border: 2px solid var(--ring);
-  animation: pulse-ring 2.2s infinite ease-out;
-}
-
 .stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

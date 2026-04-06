@@ -116,3 +116,9 @@ main {
   text-align: center;
   color: var(--text-muted);
 }
+
+@media (max-width: 640px) {
+  .project-cover-large {
+    height: 210px;
+  }
+}

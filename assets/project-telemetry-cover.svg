@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
-  <rect width="1200" height="700" fill="#ecfeff"/>
-  <rect x="70" y="90" width="1060" height="520" rx="22" fill="#0f766e"/>
-  <text x="140" y="230" font-size="64" fill="#ffffff" font-family="Trebuchet MS, sans-serif" font-weight="700">Telemetry (UBS)</text>
-  <text x="140" y="300" font-size="34" fill="#ccfbf1" font-family="Trebuchet MS, sans-serif">Observability · RabbitMQ · Grafana · AWS</text>
-  <polyline points="150,470 280,420 390,450 520,340 650,370 780,300 920,260" fill="none" stroke="#99f6e4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

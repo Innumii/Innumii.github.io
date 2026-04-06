@@ -4,18 +4,20 @@
     var label = document.getElementById("toggle-label");
     var root = document.documentElement;
 
-    if (!toggle || !label) {
-      return;
-    }
+    if (!toggle) return;
 
     function applyTheme(dark) {
       if (dark) {
         root.setAttribute("data-theme", "dark");
-        label.textContent = "Night mode";
+        if (label) {
+          label.textContent = "Night mode";
+        }
         toggle.checked = true;
       } else {
         root.removeAttribute("data-theme");
-        label.textContent = "Day mode";
+        if (label) {
+          label.textContent = "Day mode";
+        }
         toggle.checked = false;
       }
     }
@@ -39,18 +41,10 @@
       var startTime;
 
       function updateCount(timestamp) {
-        if (!startTime) {
-          startTime = timestamp;
-        }
-
-        var elapsed = timestamp - startTime;
-        var progress = Math.min(elapsed / duration, 1);
-        var value = Math.floor(progress * target);
-        counter.textContent = String(value) + suffix;
-
-        if (progress < 1) {
-          window.requestAnimationFrame(updateCount);
-        }
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        counter.textContent = Math.floor(progress * target) + suffix;
+        if (progress < 1) window.requestAnimationFrame(updateCount);
       }
 
       counter.textContent = "0" + suffix;
@@ -59,8 +53,6 @@
   }
 
   function initReveals() {
-    var revealElements = document.querySelectorAll(".reveal");
-
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -70,22 +62,23 @@
           }
         });
       },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -30px 0px"
-      }
+      { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
     );
 
-    revealElements.forEach(function (el) {
+    document.querySelectorAll(".reveal").forEach(function (el) {
       observer.observe(el);
     });
   }
 
-  function initPage() {
+  function init() {
     initThemeToggle();
     initCounters();
     initReveals();
   }
 
-  window.addEventListener("components:loaded", initPage);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();

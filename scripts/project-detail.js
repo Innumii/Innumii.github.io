@@ -29,6 +29,36 @@
         "Deployed on AWS and added LSTM-based anomaly detection for proactive alerting."
       ],
       tags: ["RabbitMQ", "Grafana", "AWS", "Python", "LSTM"]
+    },
+    "cheaty-fetch": {
+      title: "Cheaty Fetch",
+      timeframe: "Jan 2025 - May 2025",
+      context: "Web scraping and full-stack",
+      image: "",
+      description:
+        "A full-stack price aggregator for trading card markets in Singapore, enabling real-time cross-retailer comparison with a performant caching layer.",
+      bullets: [
+        "Engineered a Python/Selenium web scraper to aggregate real-time trading card prices across multiple Singapore retailers.",
+        "Built a caching layer to reduce lookup latency while preserving data freshness.",
+        "Created a React frontend with filtering and search for rapid cross-retailer comparison.",
+        "Containerized services using Docker for reliable local and deployment environments."
+      ],
+      tags: ["Python", "Selenium", "Web Scraping", "Caching", "React", "Docker"]
+    },
+    "urban-farm": {
+      title: "Urban Farm",
+      timeframe: "Jan 2024 - May 2024",
+      context: "Android game development",
+      image: "",
+      description:
+        "A fully functional Android game built with a custom multithreaded architecture, concurrent game systems, and robust local persistence.",
+      bullets: [
+        "Developed concurrent game systems with a custom multithreaded architecture.",
+        "Implemented responsive state updates while isolating gameplay subsystems.",
+        "Designed local persistence for game progress and player data.",
+        "Optimized serialization/deserialization for complex in-game object state."
+      ],
+      tags: ["Kotlin", "Java", "Android SDK", "SQLite", "Multithreading"]
     }
   };
 
@@ -63,9 +93,13 @@
       })
       .join("");
 
+    var coverHtml = project.image
+      ? '<img class="project-cover-large" src="' + project.image + '" alt="' + project.title + ' preview" />'
+      : "";
+
     root.innerHTML =
       '<article class="card">' +
-      '<img class="project-cover-large" src="' + project.image + '" alt="' + project.title + ' preview" />' +
+      coverHtml +
       '<h1 class="title">' + project.title + "</h1>" +
       '<p class="meta">' + project.timeframe + " - " + project.context + "</p>" +
       '<p class="description">' + project.description + "</p>" +

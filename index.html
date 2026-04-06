@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="styles/portfolio-responsive.css" />
   </head>
   <body>
-    <div data-include="components/portfolio-navbar.html">
+    <div data-include="navbar"></div>
+
+    <main>
+      <div data-include="hero"></div>
+      <div data-include="experience"></div>
+      <div data-include="projects"></div>
+      <div data-include="skills"></div>
+      <div data-include="contact"></div>
+    </main>
+
+    <div data-include="footer"></div>
+
+    <script type="text/html" id="tpl-navbar">
       <nav class="site-nav">
         <div class="container nav-inner">
           <a class="brand" href="#hero">LP</a>
@@ -59,248 +71,324 @@
           </div>
         </div>
       </nav>
-    </div>
+    </script>
 
-    <main>
-      <div data-include="components/portfolio-hero.html">
-        <section class="section hero reveal" id="hero">
-          <div class="container hero-grid">
-            <div>
-              <div class="avatar-wrap" aria-label="Profile avatar">
+    <script type="text/html" id="tpl-hero">
+      <section class="section hero reveal" id="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="avatar-shell">
+              <div class="avatar-wrap">
                 <img class="avatar-image" src="assets/avatar-linus.png" alt="Linus Phong Wen Jie avatar" />
               </div>
-              <h1>Linus Phong Wen Jie</h1>
-              <p class="job-title">Software Engineer</p>
-              <p class="tagline">I ship reliable mobile and backend systems with measurable product impact.</p>
-              <div class="status-badge">
-                <span class="status-dot" aria-hidden="true"></span>
-                <span>Open to opportunities</span>
+              <div class="avatar-ring" aria-hidden="true"></div>
+            </div>
+            <h1>Linus Phong Wen Jie</h1>
+            <p class="job-title">Software Engineer</p>
+            <p class="tagline">I ship reliable mobile and backend systems with measurable product impact.</p>
+            <div class="status-badge">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Open to opportunities</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get in touch</a>
+              <a class="btn btn-secondary" href="#projects">View projects</a>
+            </div>
+            <div class="stats">
+              <article class="stat-card">
+                <p class="stat-value"><span class="counter" data-target="3" data-suffix="+">0</span></p>
+                <p class="stat-label">Years experience</p>
+              </article>
+              <article class="stat-card">
+                <p class="stat-value"><span class="counter" data-target="4" data-suffix="+">0</span></p>
+                <p class="stat-label">Projects shipped</p>
+              </article>
+              <article class="stat-card">
+                <p class="stat-value"><span class="counter" data-target="3" data-suffix="+">0</span></p>
+                <p class="stat-label">Companies worked with</p>
+              </article>
+            </div>
+          </div>
+          <aside class="hero-note card reveal">
+            <p>CS graduate from SMU (AI and Business Analytics) with hands-on experience shipping Android features at TikTok and backend systems at Thales.</p>
+            <p>Based in Singapore. Interested in product engineering roles spanning backend systems, cloud infrastructure, and Android.</p>
+          </aside>
+        </div>
+      </section>
+    </script>
+
+    <script type="text/html" id="tpl-experience">
+      <section class="section reveal" id="experience">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Recent roles and impact highlights.</p>
+          <div class="cards-grid">
+            <article class="card experience-item reveal">
+              <div class="company-logo">
+                <img src="assets/logo-tiktok.png" alt="TikTok logo" />
               </div>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#contact">Get in touch</a>
-                <a class="btn btn-secondary" href="#projects">View projects</a>
+              <div>
+                <h3>TikTok Singapore - Android Software Developer Intern</h3>
+                <p class="meta-row">
+                  <span>Jun 2025 - Dec 2025</span>
+                  <span>-</span>
+                  <span>Singapore</span>
+                </p>
+                <ul class="experience-bullets">
+                  <li>Ideated, designed, and delivered a new Android feature in Kotlin that drove a 20% increase in overall product revenue, owning the full development lifecycle from design through production.</li>
+                  <li>Led the refactor and migration of a key business feature into a standalone module, enhancing scalability and simplifying future development.</li>
+                  <li>Built a robust event-tracking system using Android instrumentation to enable accurate real-time match analytics, supporting data-driven product decisions.</li>
+                  <li>Identified and resolved high-impact defects across the Android codebase, improving platform stability and user experience at scale.</li>
+                  <li>Solely owned and shipped a major product feature independently under tight staffing constraints with minimal supervision.</li>
+                </ul>
+                <div class="tags">
+                  <span class="tag">Kotlin</span>
+                  <span class="tag">Java</span>
+                  <span class="tag">Android</span>
+                  <span class="tag">Event Tracking</span>
+                  <span class="tag">System Architecture</span>
+                  <span class="tag">Animations</span>
+                </div>
               </div>
-              <div class="stats">
-                <article class="stat-card">
-                  <p class="stat-value"><span class="counter" data-target="3" data-suffix="+">0</span></p>
-                  <p class="stat-label">Years experience</p>
-                </article>
-                <article class="stat-card">
-                  <p class="stat-value"><span class="counter" data-target="12" data-suffix="+">0</span></p>
-                  <p class="stat-label">Projects shipped</p>
-                </article>
-                <article class="stat-card">
-                  <p class="stat-value"><span class="counter" data-target="3" data-suffix="+">0</span></p>
-                  <p class="stat-label">Companies worked with</p>
-                </article>
+            </article>
+
+            <article class="card experience-item reveal">
+              <div class="company-logo">
+                <img src="assets/logo-thales.png" alt="Thales logo" />
               </div>
-            </div>
-            <aside class="hero-note card reveal">
-              <p>CS graduate from SMU (AI and Business Analytics) with hands-on experience shipping Android features at TikTok and backend systems at Thales.</p>
-              <p>Based in Singapore. Interested in product engineering roles spanning backend systems, cloud infrastructure, and Android.</p>
-            </aside>
-          </div>
-        </section>
-      </div>
-
-      <div data-include="components/portfolio-experience.html">
-        <section class="section reveal" id="experience">
-          <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">Recent roles and impact highlights.</p>
-            <div class="cards-grid">
-              <article class="card experience-item reveal">
-                <div class="company-logo">
-                  <img src="assets/logo-tiktok.png" alt="TikTok logo" />
-                </div>
-                <div>
-                  <h3>TikTok Singapore - Android Software Developer Intern</h3>
-                  <p class="meta-row">
-                    <span>Jun 2025 - Dec 2025</span>
-                    <span>•</span>
-                    <span>Singapore</span>
-                  </p>
-                  <p>Ideated and shipped a Kotlin Android feature that contributed to a 20% increase in product revenue, while owning end-to-end delivery from design through production.</p>
-                  <div class="tags">
-                    <span class="tag">Kotlin</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">Android</span>
-                    <span class="tag">Event Tracking</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="card experience-item reveal">
-                <div class="company-logo">
-                  <img src="assets/logo-thales.png" alt="Thales logo" />
-                </div>
-                <div>
-                  <h3>Thales Group (DIS) Singapore - Software Developer Intern</h3>
-                  <p class="meta-row">
-                    <span>Jan 2025 - May 2025</span>
-                    <span>•</span>
-                    <span>Singapore</span>
-                  </p>
-                  <p>Led database migration work and built Java/Cucumber BDD automation that reduced testing cycles from hours to minutes, improving release cadence.</p>
-                  <div class="tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">Cucumber</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">CI/CD</span>
-                  </div>
-                </div>
-              </article>
-
-              <article class="card experience-item reveal">
-                <div class="company-logo">
-                  <img src="assets/logo-mirae.svg" alt="Mirae logo" />
-                </div>
-                <div>
-                  <h3>Mirae Distributions (DNDTS) Singapore - Assistant Software Developer</h3>
-                  <p class="meta-row">
-                    <span>May 2024 - Jul 2024</span>
-                    <span>•</span>
-                    <span>Singapore</span>
-                  </p>
-                  <p>Automated HR workflows and built real-time outage alerts that improved response speed and reduced operational overhead.</p>
-                  <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">PowerShell</span>
-                    <span class="tag">Automation</span>
-                    <span class="tag">Dashboards</span>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div data-include="components/portfolio-projects.html">
-        <section class="section reveal" id="projects">
-          <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Selected builds across real-time systems, observability, and automation.</p>
-            <div class="project-grid">
-              <a href="pages/projects.html?project=speed-card-game" aria-label="View Speed Card Game details">
-                <article class="card reveal">
-                  <img class="project-cover" src="assets/project-speed-card-game.png" alt="Speed Card Game preview" />
-                  <div class="project-header">
-                    <div class="project-icon">&lt;/&gt;</div>
-                    <h3>Speed Card Game</h3>
-                  </div>
-                  <p>Built a fully online 1v1 real-time card game with Go microservices, a C++ authoritative server, and Terraform-based cloud provisioning.</p>
-                  <div class="tags">
-                    <span class="tag">Go</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">Terraform</span>
-                    <span class="tag">GitHub Actions</span>
-                  </div>
-                  <p class="project-year">2026 - Real-time multiplayer platform</p>
-                </article>
-              </a>
-
-              <a href="pages/projects.html?project=telemetry" aria-label="View Telemetry project details">
-                <article class="card reveal">
-                  <img class="project-cover" src="assets/project-telemetry.png" alt="Telemetry project preview" />
-                  <div class="project-header">
-                    <div class="project-icon">{ }</div>
-                    <h3>Telemetry (UBS)</h3>
-                  </div>
-                  <p>Designed a RabbitMQ-based notification pipeline, integrated Grafana dashboards, and deployed cloud infrastructure with anomaly detection alerts.</p>
-                  <div class="tags">
-                    <span class="tag">RabbitMQ</span>
-                    <span class="tag">Grafana</span>
-                    <span class="tag">AWS</span>
-                    <span class="tag">Python</span>
-                  </div>
-                  <p class="project-year">2025 - Observability and incident response</p>
-                </article>
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div data-include="components/portfolio-skills.html">
-        <section class="section reveal" id="skills">
-          <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Core technologies used across internships and production projects.</p>
-            <div class="skills-grid">
-              <article class="card skill-group reveal">
-                <h3>Languages</h3>
+              <div>
+                <h3>Thales Group (DIS) Singapore - Software Developer Intern</h3>
+                <p class="meta-row">
+                  <span>Jan 2025 - May 2025</span>
+                  <span>-</span>
+                  <span>Singapore</span>
+                </p>
+                <ul class="experience-bullets">
+                  <li>Led the upgrade and migration of the user tracking database, leveraging Docker for containerization and JDBC for seamless integration.</li>
+                  <li>Proposed enhancements to data collection strategies and optimized data utilization to improve test case coverage.</li>
+                  <li>Engineered automated BDD tests with Java, Cucumber, and Gherkin that cut testing time from hours to minutes.</li>
+                </ul>
                 <div class="tags">
-                  <span class="skill-pill"><span>Python</span></span>
-                  <span class="skill-pill"><span>Java</span></span>
-                  <span class="skill-pill"><span>Kotlin</span></span>
-                  <span class="skill-pill"><span>C++</span></span>
-                  <span class="skill-pill"><span>Go</span></span>
-                  <span class="skill-pill"><span>JavaScript</span></span>
-                  <span class="skill-pill"><span>SQL</span></span>
+                  <span class="tag">Java</span>
+                  <span class="tag">Cucumber</span>
+                  <span class="tag">Gherkin</span>
+                  <span class="tag">Docker</span>
+                  <span class="tag">CI/CD</span>
+                  <span class="tag">Database Migration</span>
                 </div>
-              </article>
+              </div>
+            </article>
 
-              <article class="card skill-group reveal">
-                <h3>Frameworks</h3>
+            <article class="card experience-item reveal">
+              <div class="company-logo">
+                <img src="assets/logo-mirae.svg" alt="Mirae logo" />
+              </div>
+              <div>
+                <h3>Mirae Distributions (DNDTS) Singapore - Assistant Software Developer</h3>
+                <p class="meta-row">
+                  <span>May 2024 - Jul 2024</span>
+                  <span>-</span>
+                  <span>Singapore</span>
+                </p>
+                <ul class="experience-bullets">
+                  <li>Automated repetitive HR workflows using Python, saving an hour of manual work daily.</li>
+                  <li>Developed a real-time power outage alert system in Python and PowerShell for senior management alerts.</li>
+                  <li>Designed and deployed HR dashboards for rapid self-serve access to employee data.</li>
+                  <li>Validated and cleansed user input data to maintain data integrity across HR systems.</li>
+                </ul>
                 <div class="tags">
-                  <span class="skill-pill"><span>Spring Boot</span></span>
-                  <span class="skill-pill"><span>React</span></span>
-                  <span class="skill-pill"><span>Svelte</span></span>
-                  <span class="skill-pill"><span>JPA</span></span>
-                  <span class="skill-pill"><span>Cucumber</span></span>
+                  <span class="tag">Python</span>
+                  <span class="tag">PowerShell</span>
+                  <span class="tag">Selenium</span>
+                  <span class="tag">Automation</span>
+                  <span class="tag">Dashboards</span>
+                  <span class="tag">Data Validation</span>
                 </div>
-              </article>
-
-              <article class="card skill-group reveal">
-                <h3>Databases</h3>
-                <div class="tags">
-                  <span class="skill-pill"><span>PostgreSQL</span></span>
-                  <span class="skill-pill"><span>MySQL</span></span>
-                  <span class="skill-pill"><span>SQLite</span></span>
-                  <span class="skill-pill"><span>RDS</span></span>
-                </div>
-              </article>
-
-              <article class="card skill-group reveal">
-                <h3>Cloud and DevOps</h3>
-                <div class="tags">
-                  <span class="skill-pill"><span>AWS (EC2/S3/RDS)</span></span>
-                  <span class="skill-pill"><span>Docker</span></span>
-                  <span class="skill-pill"><span>Kubernetes</span></span>
-                  <span class="skill-pill"><span>Terraform</span></span>
-                  <span class="skill-pill"><span>GitHub Actions</span></span>
-                  <span class="skill-pill"><span>Grafana</span></span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div data-include="components/portfolio-contact.html">
-        <section class="section reveal" id="contact">
-          <div class="container contact-wrap">
-            <article class="card contact-card reveal">
-              <h2 class="section-title">Contact</h2>
-              <p>Open to software engineering opportunities and collaborative product work.</p>
-              <div class="contact-links">
-                <a class="contact-link" href="mailto:linusphongwenjie@gmail.com">Email</a>
-                <a class="contact-link" href="https://www.linkedin.com/in/linus-phong-9b6007223" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="contact-link" href="https://github.com/Innumii" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="contact-link" href="assets/linus-resume.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
               </div>
             </article>
           </div>
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+    </script>
 
-    <div data-include="components/portfolio-footer.html">
+    <script type="text/html" id="tpl-projects">
+      <section class="section reveal" id="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">Selected builds across real-time systems, observability, and automation.</p>
+          <div class="project-grid">
+            <a href="pages/projects.html?project=speed-card-game" aria-label="View Speed Card Game details">
+              <article class="card reveal">
+                <div class="project-header">
+                  <div class="project-icon">&lt;/&gt;</div>
+                  <h3>Speed Card Game</h3>
+                </div>
+                <p>Architected and shipped a fully online 1v1 real-time card game with sub-second response times, Go microservices, a C++ authoritative server, and Terraform-based cloud provisioning.</p>
+                <div class="tags">
+                  <span class="tag">Go</span>
+                  <span class="tag">C++</span>
+                  <span class="tag">Terraform</span>
+                  <span class="tag">GitHub Actions</span>
+                </div>
+                <p class="project-year">2026 - Real-time multiplayer platform</p>
+              </article>
+            </a>
+
+            <a href="pages/projects.html?project=telemetry" aria-label="View Telemetry project details">
+              <article class="card reveal">
+                <div class="project-header">
+                  <div class="project-icon">{ }</div>
+                  <h3>Telemetry (UBS)</h3>
+                </div>
+                <p>Designed a RabbitMQ-based notification pipeline, integrated Grafana dashboards, and deployed cloud infrastructure with LSTM anomaly detection alerts.</p>
+                <div class="tags">
+                  <span class="tag">RabbitMQ</span>
+                  <span class="tag">Grafana</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">LSTM</span>
+                </div>
+                <p class="project-year">2025 - Observability and incident response</p>
+              </article>
+            </a>
+
+            <a href="pages/projects.html?project=cheaty-fetch" aria-label="View Cheaty Fetch project details">
+              <article class="card reveal">
+                <div class="project-header">
+                  <div class="project-icon">&#128269;</div>
+                  <h3>Cheaty Fetch</h3>
+                </div>
+                <p>Engineered a Python/Selenium scraper to aggregate real-time trading card prices across Singapore retailers, with a caching layer and a React frontend for cross-retailer comparison.</p>
+                <div class="tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Selenium</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Docker</span>
+                </div>
+                <p class="project-year">2025 - Web scraping and full-stack</p>
+              </article>
+            </a>
+
+            <a href="pages/projects.html?project=urban-farm" aria-label="View Urban Farm project details">
+              <article class="card reveal">
+                <div class="project-header">
+                  <div class="project-icon">&#127807;</div>
+                  <h3>Urban Farm</h3>
+                </div>
+                <p>Developed a fully functional Android game with a custom multithreaded architecture, concurrent game systems, and a robust local persistence layer.</p>
+                <div class="tags">
+                  <span class="tag">Kotlin</span>
+                  <span class="tag">Java</span>
+                  <span class="tag">Android SDK</span>
+                  <span class="tag">SQLite</span>
+                  <span class="tag">Multithreading</span>
+                </div>
+                <p class="project-year">2024 - Android game development</p>
+              </article>
+            </a>
+          </div>
+        </div>
+      </section>
+    </script>
+
+    <script type="text/html" id="tpl-skills">
+      <section class="section reveal" id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">Core technologies used across internships and production projects.</p>
+          <div class="skills-grid">
+            <article class="card skill-group reveal">
+              <h3>Languages</h3>
+              <div class="tags">
+                <span class="skill-pill"><span>Python</span></span>
+                <span class="skill-pill"><span>Java</span></span>
+                <span class="skill-pill"><span>Kotlin</span></span>
+                <span class="skill-pill"><span>C++</span></span>
+                <span class="skill-pill"><span>Go</span></span>
+                <span class="skill-pill"><span>JavaScript</span></span>
+                <span class="skill-pill"><span>SQL</span></span>
+                <span class="skill-pill"><span>Google Apps Script</span></span>
+                <span class="skill-pill"><span>VBA</span></span>
+              </div>
+            </article>
+
+            <article class="card skill-group reveal">
+              <h3>Frameworks &amp; Libraries</h3>
+              <div class="tags">
+                <span class="skill-pill"><span>Spring Boot</span></span>
+                <span class="skill-pill"><span>React</span></span>
+                <span class="skill-pill"><span>Svelte</span></span>
+                <span class="skill-pill"><span>JDBC</span></span>
+                <span class="skill-pill"><span>JPA</span></span>
+                <span class="skill-pill"><span>Cucumber / Gherkin</span></span>
+                <span class="skill-pill"><span>Selenium</span></span>
+              </div>
+            </article>
+
+            <article class="card skill-group reveal">
+              <h3>Databases</h3>
+              <div class="tags">
+                <span class="skill-pill"><span>PostgreSQL</span></span>
+                <span class="skill-pill"><span>MySQL</span></span>
+                <span class="skill-pill"><span>SQLite</span></span>
+                <span class="skill-pill"><span>RDS</span></span>
+              </div>
+            </article>
+
+            <article class="card skill-group reveal">
+              <h3>Cloud &amp; DevOps</h3>
+              <div class="tags">
+                <span class="skill-pill"><span>AWS (EC2/S3/RDS)</span></span>
+                <span class="skill-pill"><span>Docker</span></span>
+                <span class="skill-pill"><span>Kubernetes</span></span>
+                <span class="skill-pill"><span>Terraform</span></span>
+                <span class="skill-pill"><span>GitHub Actions</span></span>
+                <span class="skill-pill"><span>Grafana</span></span>
+                <span class="skill-pill"><span>RabbitMQ</span></span>
+              </div>
+            </article>
+
+            <article class="card skill-group reveal">
+              <h3>Concepts</h3>
+              <div class="tags">
+                <span class="skill-pill"><span>Multithreading</span></span>
+                <span class="skill-pill"><span>CI/CD</span></span>
+                <span class="skill-pill"><span>BDD Testing</span></span>
+                <span class="skill-pill"><span>REST APIs</span></span>
+                <span class="skill-pill"><span>Microservices</span></span>
+                <span class="skill-pill"><span>Cloud Infrastructure</span></span>
+                <span class="skill-pill"><span>Machine Learning</span></span>
+                <span class="skill-pill"><span>Computer Vision</span></span>
+                <span class="skill-pill"><span>LSTM</span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </script>
+
+    <script type="text/html" id="tpl-contact">
+      <section class="section reveal" id="contact">
+        <div class="container contact-wrap">
+          <article class="card contact-card reveal">
+            <h2 class="section-title">Contact</h2>
+            <p>Open to software engineering opportunities and collaborative product work.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:linusphongwenjie@gmail.com">Email</a>
+              <a class="contact-link" href="https://www.linkedin.com/in/linus-phong-9b6007223" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="contact-link" href="https://github.com/Innumii" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="contact-link" href="assets/linus-resume.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </script>
+
+    <script type="text/html" id="tpl-footer">
       <footer>
         <div class="container">2026 Linus Phong Wen Jie - Built for GitHub Pages</div>
       </footer>
-    </div>
+    </script>
 
     <script src="scripts/include-components.js" defer></script>
     <script src="scripts/portfolio.js" defer></script>
