@@ -5,14 +5,75 @@
 
 (function () {
   window.DataLoader = window.DataLoader || {};
+  var hasLoadedData = false;
+
+  function loadJson(path) {
+    return fetch(path)
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Failed to load: " + path);
+        }
+        return response.json();
+      })
+      .catch(function () {
+        // Fallback for local file contexts where fetch can fail.
+        return new Promise(function (resolve, reject) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", path, true);
+
+          xhr.onload = function () {
+            if (xhr.status === 200 || xhr.status === 0) {
+              try {
+                resolve(JSON.parse(xhr.responseText));
+              } catch (error) {
+                reject(error);
+              }
+            } else {
+              reject(new Error("XHR failed: " + path));
+            }
+          };
+
+          xhr.onerror = function () {
+            reject(new Error("XHR network error: " + path));
+          };
+
+          xhr.send();
+        });
+      });
+  }
+
+  function areComponentTemplatesReady() {
+    return !!(
+      document.getElementById("experience-item-template") &&
+      document.getElementById("project-item-template") &&
+      document.getElementById("skill-group-template")
+    );
+  }
+
+  function loadAllData() {
+    if (hasLoadedData) return;
+    if (!areComponentTemplatesReady()) return;
+
+    hasLoadedData = true;
+    loadExperience();
+    loadProjects();
+    loadSkills();
+  }
+
+  function waitForTemplatesAndLoad() {
+    if (hasLoadedData) return;
+
+    if (areComponentTemplatesReady()) {
+      loadAllData();
+      return;
+    }
+
+    window.setTimeout(waitForTemplatesAndLoad, 60);
+  }
 
   // Load and render experience items
   function loadExperience() {
-    return fetch("data/experience.json")
-      .then(function (response) {
-        if (!response.ok) throw new Error("Failed to load experience data");
-        return response.json();
-      })
+    return loadJson("data/experience.json")
       .then(function (experiences) {
         renderExperience(experiences);
       })
@@ -23,11 +84,7 @@
 
   // Load and render project items
   function loadProjects() {
-    return fetch("data/projects.json")
-      .then(function (response) {
-        if (!response.ok) throw new Error("Failed to load projects data");
-        return response.json();
-      })
+    return loadJson("data/projects.json")
       .then(function (projects) {
         renderProjects(projects);
       })
@@ -38,11 +95,7 @@
 
   // Load and render skills groups
   function loadSkills() {
-    return fetch("data/skills.json")
-      .then(function (response) {
-        if (!response.ok) throw new Error("Failed to load skills data");
-        return response.json();
-      })
+    return loadJson("data/skills.json")
       .then(function (skills) {
         renderSkills(skills);
       })
@@ -189,10 +242,11 @@
   // Initialize data loading when components are loaded
   function init() {
     window.addEventListener("components:loaded", function () {
-      loadExperience();
-      loadProjects();
-      loadSkills();
+      loadAllData();
     });
+
+    // Also bootstrap independently in case the event fired before this listener was attached.
+    waitForTemplatesAndLoad();
   }
 
   // Expose public methods
