@@ -1,4 +1,16 @@
 (function () {
+  var scriptBaseUrl = (function () {
+    var currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+      return new URL("./", currentScript.src).href;
+    }
+    return new URL("scripts/", window.location.href).href;
+  })();
+
+  function resolveDataPath(fileName) {
+    return new URL("../data/" + fileName, scriptBaseUrl).href;
+  }
+
   function getProjectKey() {
     var params = new URLSearchParams(window.location.search);
     return params.get("project");
@@ -83,7 +95,7 @@
 
   var key = getProjectKey();
 
-  fetch("../data/projects.json")
+  fetch(resolveDataPath("projects.json"))
     .then(function (response) {
       if (!response.ok) {
         throw new Error("Failed to load project data");

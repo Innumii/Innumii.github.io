@@ -5,6 +5,18 @@
 
 (function () {
   window.DataLoader = window.DataLoader || {};
+  var scriptBaseUrl = (function () {
+    var currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+      return new URL("./", currentScript.src).href;
+    }
+    return new URL("scripts/", window.location.href).href;
+  })();
+
+  function resolveDataPath(fileName) {
+    return new URL("../data/" + fileName, scriptBaseUrl).href;
+  }
+
   var loadedSections = {
     experience: false,
     projects: false,
@@ -96,7 +108,7 @@
 
   // Load and render experience items
   function loadExperience() {
-    return loadJson("data/experience.json")
+    return loadJson(resolveDataPath("experience.json"))
       .then(function (experiences) {
         renderExperience(experiences);
       })
@@ -107,7 +119,7 @@
 
   // Load and render project items
   function loadProjects() {
-    return loadJson("data/projects.json")
+    return loadJson(resolveDataPath("projects.json"))
       .then(function (projects) {
         renderProjects(projects);
       })
@@ -118,7 +130,7 @@
 
   // Load and render skills groups
   function loadSkills() {
-    return loadJson("data/skills.json")
+    return loadJson(resolveDataPath("skills.json"))
       .then(function (skills) {
         renderSkills(skills);
       })

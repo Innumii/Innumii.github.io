@@ -1,4 +1,16 @@
 (function () {
+  var scriptBaseUrl = (function () {
+    var currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+      return new URL("./", currentScript.src).href;
+    }
+    return new URL("scripts/", window.location.href).href;
+  })();
+
+  function resolvePath(relativePath) {
+    return new URL(relativePath, scriptBaseUrl).href;
+  }
+
   function loadTextWithXhr(path) {
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest();
@@ -38,7 +50,7 @@
   }
 
   function loadComponent(name, slot) {
-    var path = "components/" + name + ".component.html";
+    var path = resolvePath("../components/" + name + ".component.html");
 
     return fetch(path)
       .then(function (response) {
@@ -57,14 +69,6 @@
           })
           .catch(function (error) {
             console.warn(error.message);
-
-            // Try fallback to old JS-based components
-            var registry = window.PortfolioComponents || {};
-            var markup = registry[name];
-            if (typeof markup === "string") {
-              slot.innerHTML = markup;
-              return;
-            }
 
             slot.innerHTML =
               '<div class="container"><p class="section-subtitle">Failed to load component: ' +
