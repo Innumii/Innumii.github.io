@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tiktok",
+    "company": "TikTok Singapore",
+    "position": "Android Software Developer Intern",
+    "logo": "assets/logo-tiktok.png",
+    "duration": "Jun 2025 - Dec 2025",
+    "location": "Singapore",
+    "description": "Shipped high-impact Android features in Kotlin that drove a 20% increase in product revenue, led critical system refactors, and built event-tracking infrastructure.",
+    "accomplishments": [
+      "Ideated, designed, and delivered a new Android feature in Kotlin that drove a 20% increase in overall product revenue, owning the full development lifecycle from design through production.",
+      "Led the refactor and migration of a key business feature into a standalone module, enhancing scalability and simplifying future development.",
+      "Built a robust event-tracking system using Android instrumentation to enable accurate real-time match analytics, supporting data-driven product decisions.",
+      "Identified and resolved high-impact defects across the Android codebase, improving platform stability and user experience at scale.",
+      "Solely owned and shipped a major product feature independently under tight staffing constraints with minimal supervision."
+    ],
+    "skills": ["Kotlin", "Java", "Android", "Event Tracking", "System Architecture", "Animations"]
+  },
+  {
+    "id": "thales",
+    "company": "Thales Group (DIS) Singapore",
+    "position": "Software Developer Intern",
+    "logo": "assets/logo-thales.png",
+    "duration": "Jan 2025 - May 2025",
+    "location": "Singapore",
+    "description": "Led database migration efforts, optimized testing infrastructure, and engineered automated BDD tests that reduced testing time from hours to minutes.",
+    "accomplishments": [
+      "Led the upgrade and migration of the user tracking database, leveraging Docker for containerization and JDBC for seamless integration.",
+      "Proposed enhancements to data collection strategies and optimized data utilization to improve test case coverage.",
+      "Engineered automated BDD tests with Java, Cucumber, and Gherkin that cut testing time from hours to minutes."
+    ],
+    "skills": ["Java", "Cucumber", "Gherkin", "Docker", "CI/CD", "Database Migration"]
+  },
+  {
+    "id": "mirae",
+    "company": "Mirae Distributions (DNDTS) Singapore",
+    "position": "Assistant Software Developer",
+    "logo": "assets/logo-mirae.svg",
+    "duration": "May 2024 - Jul 2024",
+    "location": "Singapore",
+    "description": "Automated HR workflows, built real-time monitoring systems, and created dashboards for self-serve data access.",
+    "accomplishments": [
+      "Automated repetitive HR workflows using Python, saving an hour of manual work daily.",
+      "Developed a real-time power outage alert system in Python and PowerShell for senior management alerts.",
+      "Designed and deployed HR dashboards for rapid self-serve access to employee data.",
+      "Validated and cleansed user input data to maintain data integrity across HR systems."
+    ],
+    "skills": ["Python", "PowerShell", "Data Analysis", "Dashboard Design", "Automation"]
+  }
+]

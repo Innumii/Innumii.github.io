@@ -1,0 +1,66 @@
+[
+  {
+    "id": "speed-card-game",
+    "title": "Speed Card Game",
+    "icon": "</>,
+    "summary": "Architected and shipped a fully online 1v1 real-time card game with sub-second response times, Go microservices, a C++ authoritative server, and Terraform-based cloud provisioning.",
+    "year": 2026,
+    "category": "Real-time multiplayer platform",
+    "skills": ["Go", "C++", "Terraform", "GitHub Actions"],
+    "details": "A complete real-time multiplayer card game platform built with modern cloud infrastructure. Features include sub-second latency optimization, containerized microservices, and automated deployment pipelines.",
+    "achievements": [
+      "Designed and implemented Go microservices for player matchmaking and session management",
+      "Built C++ authoritative game server for fair play and cheat prevention",
+      "Set up Terraform infrastructure for scalable AWS deployment",
+      "Achieved sub-second response times with optimized networking"
+    ]
+  },
+  {
+    "id": "telemetry",
+    "title": "Telemetry (UBS)",
+    "icon": "{ }",
+    "summary": "Designed a RabbitMQ-based notification pipeline, integrated Grafana dashboards, and deployed cloud infrastructure with LSTM anomaly detection alerts.",
+    "year": 2025,
+    "category": "Observability and incident response",
+    "skills": ["RabbitMQ", "Grafana", "AWS", "Python", "LSTM"],
+    "details": "Enterprise observability platform for monitoring and alerting on system anomalies using machine learning. Features real-time dashboards, automated notifications, and predictive anomaly detection.",
+    "achievements": [
+      "Architected RabbitMQ message pipeline for event streaming",
+      "Integrated Grafana for real-time metric visualization",
+      "Implemented LSTM neural network for anomaly detection",
+      "Deployed on AWS with auto-scaling capabilities"
+    ]
+  },
+  {
+    "id": "cheaty-fetch",
+    "title": "Cheaty Fetch",
+    "icon": "&#128269;",
+    "summary": "Engineered a Python/Selenium scraper to aggregate real-time trading card prices across Singapore retailers, with a caching layer and a React frontend for cross-retailer comparison.",
+    "year": 2025,
+    "category": "Web scraping and full-stack",
+    "skills": ["Python", "Selenium", "React", "Docker"],
+    "details": "Full-stack price comparison tool for trading card collectors. Scrapes multiple retailers in real-time and provides a React interface for easy price comparisons.",
+    "achievements": [
+      "Built Python scraper with Selenium for dynamic content extraction",
+      "Implemented efficient caching to reduce request overhead",
+      "Created React frontend for intuitive price comparison",
+      "Containerized with Docker for easy deployment"
+    ]
+  },
+  {
+    "id": "urban-farm",
+    "title": "Urban Farm",
+    "icon": "&#127807;",
+    "summary": "Developed a fully functional Android game with a custom multithreaded architecture, concurrent game systems, and a robust local persistence layer.",
+    "year": 2024,
+    "category": "Android game development",
+    "skills": ["Kotlin", "Java", "Android SDK", "SQLite", "Multithreading"],
+    "details": "A complete Android game built from the ground up with custom game engine architecture. Features farming simulation, trading mechanics, and local data persistence.",
+    "achievements": [
+      "Designed custom game engine with multithreaded system architecture",
+      "Implemented concurrent game state management",
+      "Built SQLite persistence layer for save game data",
+      "Optimized frame rendering for smooth 60fps gameplay"
+    ]
+  }
+]

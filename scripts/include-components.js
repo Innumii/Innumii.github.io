@@ -1,19 +1,41 @@
 (function () {
-  // Each [data-include="x"] slot is filled from the
-  // <script type="text/html" id="tpl-x"> template in the
-  // same HTML file. No fetch, no server required.
+  // Enhanced component loader that supports both .html files and JSON data
   function loadAllComponents() {
     var slots = document.querySelectorAll("[data-include]");
+    var loadPromises = [];
 
     slots.forEach(function (slot) {
       var name = slot.getAttribute("data-include");
-      var template = document.getElementById("tpl-" + name);
-      if (template) {
-        slot.innerHTML = template.innerHTML;
-      }
+      var promise = loadComponent(name, slot);
+      loadPromises.push(promise);
     });
 
-    window.dispatchEvent(new Event("components:loaded"));
+    Promise.all(loadPromises).then(function () {
+      window.dispatchEvent(new Event("components:loaded"));
+    });
+  }
+
+  function loadComponent(name, slot) {
+    return fetch("components/" + name + ".component.html")
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Component not found: " + name);
+        }
+        return response.text();
+      })
+      .then(function (html) {
+        slot.innerHTML = html;
+      })
+      .catch(function (error) {
+        console.warn(error.message);
+        // Try fallback to old JS-based components
+        var registry = window.PortfolioComponents || {};
+        var markup = registry[name];
+        if (typeof markup === "string") {
+          slot.innerHTML = markup;
+          return;
+        }
+      });
   }
 
   if (document.readyState === "loading") {

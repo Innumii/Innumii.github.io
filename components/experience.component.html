@@ -1,0 +1,27 @@
+<section class="section reveal" id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Recent roles and impact highlights.</p>
+    <div class="cards-grid" id="experience-list">
+      <!-- Experience items will be loaded here from data/experience.json -->
+    </div>
+  </div>
+</section>
+
+<template id="experience-item-template">
+  <article class="card experience-item reveal">
+    <div class="company-logo">
+      <img src="" alt="" class="company-logo-img" />
+    </div>
+    <div>
+      <h3 class="experience-title"></h3>
+      <p class="meta-row">
+        <span class="experience-duration"></span>
+        <span>-</span>
+        <span class="experience-location"></span>
+      </p>
+      <ul class="experience-bullets"></ul>
+      <div class="tags"></div>
+    </div>
+  </article>
+</template>
