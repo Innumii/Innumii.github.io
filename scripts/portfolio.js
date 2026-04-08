@@ -1,4 +1,6 @@
 (function () {
+  var revealObserver = null;
+
   function safeGetTheme() {
     try {
       return localStorage.getItem("theme");
@@ -39,17 +41,25 @@
 
     applyTheme(safeGetTheme() === "dark");
 
+    if (toggle.dataset.themeBound === "true") {
+      return;
+    }
+
     toggle.addEventListener("change", function () {
       var isDark = toggle.checked;
       applyTheme(isDark);
       safeSetTheme(isDark ? "dark" : "light");
     });
+
+    toggle.dataset.themeBound = "true";
   }
 
   function initCounters() {
-    var counters = document.querySelectorAll(".counter");
+    var counters = document.querySelectorAll('.counter:not([data-counted="true"])');
 
     counters.forEach(function (counter) {
+      counter.dataset.counted = "true";
+
       var target = Number(counter.getAttribute("data-target")) || 0;
       var suffix = counter.getAttribute("data-suffix") || "";
       var duration = 1300;
@@ -68,44 +78,61 @@
   }
 
   function initReveals() {
+    var revealItems = document.querySelectorAll('.reveal:not([data-reveal-bound="true"])');
+
+    if (revealItems.length === 0) {
+      return;
+    }
+
+    if (!window.IntersectionObserver) {
+      showAllRevealItems();
+      return;
+    }
+
     document.documentElement.classList.add("reveal-ready");
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
-    );
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+      );
+    }
 
-    document.querySelectorAll(".reveal").forEach(function (el) {
-      observer.observe(el);
+    revealItems.forEach(function (el) {
+      el.dataset.revealBound = "true";
+      revealObserver.observe(el);
     });
+  }
+
+  function runInitializers() {
+    initThemeToggle();
+    initCounters();
+    initReveals();
   }
 
   function init() {
     try {
-      initThemeToggle();
+      runInitializers();
     } catch (error) {
-      console.error("Theme initialization failed:", error);
-    }
-
-    try {
-      initCounters();
-    } catch (error) {
-      console.error("Counter initialization failed:", error);
-    }
-
-    try {
-      initReveals();
-    } catch (error) {
-      console.error("Reveal initialization failed:", error);
+      console.error("Portfolio initialization failed:", error);
       showAllRevealItems();
     }
+
+    window.addEventListener("components:loaded", function () {
+      try {
+        runInitializers();
+      } catch (error) {
+        console.error("Post-component initialization failed:", error);
+        showAllRevealItems();
+      }
+    });
   }
 
   if (document.readyState === "loading") {
