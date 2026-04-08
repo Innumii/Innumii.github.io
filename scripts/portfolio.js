@@ -11,11 +11,11 @@
     try {
       localStorage.setItem("theme", theme);
     } catch (error) {
-      // Ignore storage failures (for file:// or privacy-restricted contexts)
+      // Ignore storage failures.
     }
   }
 
-  function forceRevealVisible() {
+  function showAllRevealItems() {
     document.querySelectorAll(".reveal").forEach(function (el) {
       el.classList.add("in-view");
     });
@@ -68,6 +68,8 @@
   }
 
   function initReveals() {
+    document.documentElement.classList.add("reveal-ready");
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -102,11 +104,8 @@
       initReveals();
     } catch (error) {
       console.error("Reveal initialization failed:", error);
-      forceRevealVisible();
+      showAllRevealItems();
     }
-
-    // Ensure content is visible even if any script above fails unexpectedly.
-    forceRevealVisible();
   }
 
   if (document.readyState === "loading") {

@@ -1,4 +1,26 @@
 (function () {
+  function loadTextWithXhr(path) {
+    return new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", path, true);
+
+      xhr.onload = function () {
+        // status 0 is possible on local file contexts.
+        if (xhr.status === 200 || xhr.status === 0) {
+          resolve(xhr.responseText);
+        } else {
+          reject(new Error("XHR failed for component: " + path));
+        }
+      };
+
+      xhr.onerror = function () {
+        reject(new Error("XHR network error for component: " + path));
+      };
+
+      xhr.send();
+    });
+  }
+
   // Enhanced component loader that supports both .html files and JSON data
   function loadAllComponents() {
     var slots = document.querySelectorAll("[data-include]");
@@ -16,7 +38,9 @@
   }
 
   function loadComponent(name, slot) {
-    return fetch("components/" + name + ".component.html")
+    var path = "components/" + name + ".component.html";
+
+    return fetch(path)
       .then(function (response) {
         if (!response.ok) {
           throw new Error("Component not found: " + name);
@@ -26,15 +50,27 @@
       .then(function (html) {
         slot.innerHTML = html;
       })
-      .catch(function (error) {
-        console.warn(error.message);
-        // Try fallback to old JS-based components
-        var registry = window.PortfolioComponents || {};
-        var markup = registry[name];
-        if (typeof markup === "string") {
-          slot.innerHTML = markup;
-          return;
-        }
+      .catch(function () {
+        return loadTextWithXhr(path)
+          .then(function (html) {
+            slot.innerHTML = html;
+          })
+          .catch(function (error) {
+            console.warn(error.message);
+
+            // Try fallback to old JS-based components
+            var registry = window.PortfolioComponents || {};
+            var markup = registry[name];
+            if (typeof markup === "string") {
+              slot.innerHTML = markup;
+              return;
+            }
+
+            slot.innerHTML =
+              '<div class="container"><p class="section-subtitle">Failed to load component: ' +
+              name +
+              "</p></div>";
+          });
       });
   }
 
