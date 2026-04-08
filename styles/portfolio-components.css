@@ -72,17 +72,19 @@
 .avatar-shell {
   position: relative;
   display: inline-block;
+  width: 116px;
+  height: 116px;
   margin-bottom: 1rem;
 }
 
 /* Avatar: enforce circular clipping */
 .avatar-wrap {
   position: relative;
-  width: 116px;
-  height: 116px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 1rem;
   border: 2px solid var(--accent);
   background: var(--surface);
 }
@@ -93,6 +95,7 @@
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
   display: block;
 }
 
@@ -213,6 +216,14 @@
   font-weight: 800;
   background: var(--accent-soft);
   font-size: 1rem;
+}
+
+.project-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
+  display: block;
 }
 
 .project-year {

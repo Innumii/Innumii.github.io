@@ -4,19 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Details | Linus Phong Wen Jie</title>
+    <link rel="stylesheet" href="../styles/dayNightButtonStyle.css" />
+    <link rel="stylesheet" href="../styles/portfolio-base.css" />
+    <link rel="stylesheet" href="../styles/portfolio-layout.css" />
+    <link rel="stylesheet" href="../styles/portfolio-components.css" />
+    <link rel="stylesheet" href="../styles/portfolio-animations.css" />
+    <link rel="stylesheet" href="../styles/portfolio-responsive.css" />
     <link rel="stylesheet" href="../styles/project-detail.css" />
   </head>
   <body>
-    <header class="page-header">
-      <div class="container header-inner">
-        <a class="back-link" href="../index.html">← Back to portfolio</a>
+    <nav class="site-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="../index.html#hero">LP</a>
+        <div class="nav-actions">
+          <a class="nav-link" href="../index.html#hero">Hero</a>
+          <a class="nav-link" href="../index.html#experience">Experience</a>
+          <a class="nav-link" href="../index.html#projects">Projects</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#contact">Contact</a>
+          <label class="bb8-toggle" title="Toggle day/night mode" aria-label="Toggle day and night mode">
+            <input class="bb8-toggle__checkbox" type="checkbox" id="themeToggle" />
+            <div class="bb8-toggle__container">
+              <div class="bb8-toggle__scenery">
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="tatto-1"></div>
+                <div class="tatto-2"></div>
+                <div class="gomrassen"></div>
+                <div class="hermes"></div>
+                <div class="chenini"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
+              </div>
+              <div class="bb8">
+                <div class="bb8__head-container">
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__head"></div>
+                </div>
+                <div class="bb8__body"></div>
+              </div>
+              <div class="artificial__hidden">
+                <div class="bb8__shadow"></div>
+              </div>
+            </div>
+          </label>
+        </div>
       </div>
-    </header>
+    </nav>
 
     <main>
+      <div class="container project-page-head">
+        <a class="back-link" href="../index.html#projects">← Back to portfolio</a>
+      </div>
       <div class="container" id="projectRoot"></div>
     </main>
 
+    <script src="../scripts/portfolio.js" defer></script>
     <script src="../scripts/project-detail.js" defer></script>
   </body>
 </html>

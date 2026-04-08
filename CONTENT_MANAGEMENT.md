@@ -34,12 +34,15 @@ Edit `data/projects.json` and add a new object to the array:
 {
   "id": "unique-project-id",
   "title": "Project Name",
-  "icon": "</>" or "unicode emoji like &#128269;",
+  "icon": "A short fallback text or emoji like &#128269;",
+  "iconImage": "assets/project-name-icon.png",
   "summary": "One-line summary of the project",
-  "year": 2026,
+  "timeframe": "Jan 2026 - May 2026",
+  "year": "2026",
   "category": "Category name",
   "skills": ["Skill1", "Skill2"],
-  "details": "Detailed description",
+  "details": "Detailed description for the project page",
+  "image": "assets/project-cover.png or empty string if not available yet",
   "achievements": [
     "Achievement 1",
     "Achievement 2"
@@ -51,12 +54,37 @@ The `id` must be unique and will be used in the URL when viewing project details
 
 Save the file and reload. Your new project will appear in the portfolio!
 
+Notes:
+- Use iconImage for the small project-card icon (your provided photos work here).
+- Keep image empty if the full cover image is not available yet.
+- The project detail page will still render nicely with iconImage only.
+
+## How to Manage Skills
+
+Edit data/skills.json and update groups and skills:
+
+```json
+[
+  {
+    "group": "Languages",
+    "skills": ["Python", "Java", "Kotlin"]
+  },
+  {
+    "group": "Cloud & DevOps",
+    "skills": ["AWS", "Docker", "Terraform"]
+  }
+]
+```
+
+Save the file and reload. The Skills section updates automatically.
+
 ## File Structure
 
 ```
 data/
   ├── experience.json    # All your work experiences
-  └── projects.json      # All your projects
+  ├── projects.json      # All your projects
+  └── skills.json        # All skill groups
   
 components/
   ├── navbar.component.html       # Static components (don't edit)

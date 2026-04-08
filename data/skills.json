@@ -1,0 +1,22 @@
+[
+  {
+    "group": "Languages",
+    "skills": ["Python", "Java", "Kotlin", "C++", "Go", "JavaScript", "SQL", "Google Apps Script", "VBA"]
+  },
+  {
+    "group": "Frameworks & Libraries",
+    "skills": ["Spring Boot", "React", "Svelte", "JDBC", "JPA", "Cucumber / Gherkin", "Selenium"]
+  },
+  {
+    "group": "Databases",
+    "skills": ["PostgreSQL", "MySQL", "SQLite", "RDS"]
+  },
+  {
+    "group": "Cloud & DevOps",
+    "skills": ["AWS (EC2/S3/RDS)", "Docker", "Terraform", "GitHub Actions", "CI/CD"]
+  },
+  {
+    "group": "Other Tools",
+    "skills": ["Git", "Linux", "Jira", "REST APIs"]
+  }
+]

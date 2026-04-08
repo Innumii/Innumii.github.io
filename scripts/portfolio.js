@@ -1,7 +1,6 @@
 (function () {
   function initThemeToggle() {
     var toggle = document.getElementById("themeToggle");
-    var label = document.getElementById("toggle-label");
     var root = document.documentElement;
 
     if (!toggle) return;
@@ -9,15 +8,9 @@
     function applyTheme(dark) {
       if (dark) {
         root.setAttribute("data-theme", "dark");
-        if (label) {
-          label.textContent = "Night mode";
-        }
         toggle.checked = true;
       } else {
         root.removeAttribute("data-theme");
-        if (label) {
-          label.textContent = "Day mode";
-        }
         toggle.checked = false;
       }
     }

@@ -36,6 +36,21 @@
       });
   }
 
+  // Load and render skills groups
+  function loadSkills() {
+    return fetch("data/skills.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("Failed to load skills data");
+        return response.json();
+      })
+      .then(function (skills) {
+        renderSkills(skills);
+      })
+      .catch(function (error) {
+        console.error("Error loading skills:", error);
+      });
+  }
+
   function renderExperience(experiences) {
     var container = document.getElementById("experience-list");
     if (!container) return;
@@ -103,10 +118,17 @@
 
       // Set icon
       var icon = clone.querySelector(".project-icon");
-      if (project.icon.startsWith("&#")) {
+      if (project.iconImage) {
+        var iconImage = document.createElement("img");
+        iconImage.src = project.iconImage;
+        iconImage.alt = project.title + " icon";
+        iconImage.className = "project-icon-image";
+        icon.innerHTML = "";
+        icon.appendChild(iconImage);
+      } else if (project.icon && project.icon.indexOf("&#") === 0) {
         icon.innerHTML = project.icon;
       } else {
-        icon.textContent = project.icon;
+        icon.textContent = project.icon || "*";
       }
 
       // Set title
@@ -133,19 +155,53 @@
     });
   }
 
+  function renderSkills(skillGroups) {
+    var container = document.getElementById("skills-list");
+    if (!container) return;
+
+    var template = document.getElementById("skill-group-template");
+    if (!template) return;
+
+    container.innerHTML = "";
+
+    skillGroups.forEach(function (group) {
+      var clone = template.content.cloneNode(true);
+      clone.querySelector(".skill-group-title").textContent = group.group;
+
+      var tagsContainer = clone.querySelector(".skill-tags");
+      tagsContainer.innerHTML = "";
+
+      (group.skills || []).forEach(function (skill) {
+        var pill = document.createElement("span");
+        pill.className = "skill-pill";
+
+        var label = document.createElement("span");
+        label.textContent = skill;
+
+        pill.appendChild(label);
+        tagsContainer.appendChild(pill);
+      });
+
+      container.appendChild(clone);
+    });
+  }
+
   // Initialize data loading when components are loaded
   function init() {
     window.addEventListener("components:loaded", function () {
       loadExperience();
       loadProjects();
+      loadSkills();
     });
   }
 
   // Expose public methods
   DataLoader.loadExperience = loadExperience;
   DataLoader.loadProjects = loadProjects;
+  DataLoader.loadSkills = loadSkills;
   DataLoader.renderExperience = renderExperience;
   DataLoader.renderProjects = renderProjects;
+  DataLoader.renderSkills = renderSkills;
 
   // Initialize if DOM is ready
   if (document.readyState === "loading") {
