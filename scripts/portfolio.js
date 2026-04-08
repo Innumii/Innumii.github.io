@@ -1,4 +1,26 @@
 (function () {
+  function safeGetTheme() {
+    try {
+      return localStorage.getItem("theme");
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function safeSetTheme(theme) {
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (error) {
+      // Ignore storage failures (for file:// or privacy-restricted contexts)
+    }
+  }
+
+  function forceRevealVisible() {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("in-view");
+    });
+  }
+
   function initThemeToggle() {
     var toggle = document.getElementById("themeToggle");
     var root = document.documentElement;
@@ -15,12 +37,12 @@
       }
     }
 
-    applyTheme(localStorage.getItem("theme") === "dark");
+    applyTheme(safeGetTheme() === "dark");
 
     toggle.addEventListener("change", function () {
       var isDark = toggle.checked;
       applyTheme(isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      safeSetTheme(isDark ? "dark" : "light");
     });
   }
 
@@ -64,9 +86,27 @@
   }
 
   function init() {
-    initThemeToggle();
-    initCounters();
-    initReveals();
+    try {
+      initThemeToggle();
+    } catch (error) {
+      console.error("Theme initialization failed:", error);
+    }
+
+    try {
+      initCounters();
+    } catch (error) {
+      console.error("Counter initialization failed:", error);
+    }
+
+    try {
+      initReveals();
+    } catch (error) {
+      console.error("Reveal initialization failed:", error);
+      forceRevealVisible();
+    }
+
+    // Ensure content is visible even if any script above fails unexpectedly.
+    forceRevealVisible();
   }
 
   if (document.readyState === "loading") {
