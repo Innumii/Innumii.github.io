@@ -5,7 +5,11 @@
 
 (function () {
   window.DataLoader = window.DataLoader || {};
-  var hasLoadedData = false;
+  var loadedSections = {
+    experience: false,
+    projects: false,
+    skills: false
+  };
 
   function loadJson(path) {
     return fetch(path)
@@ -42,31 +46,50 @@
       });
   }
 
-  function areComponentTemplatesReady() {
+  function canLoadExperience() {
     return !!(
-      document.getElementById("experience-item-template") &&
-      document.getElementById("project-item-template") &&
+      document.getElementById("experience-list") &&
+      document.getElementById("experience-item-template")
+    );
+  }
+
+  function canLoadProjects() {
+    return !!(
+      document.getElementById("projects-list") &&
+      document.getElementById("project-item-template")
+    );
+  }
+
+  function canLoadSkills() {
+    return !!(
+      document.getElementById("skills-list") &&
       document.getElementById("skill-group-template")
     );
   }
 
-  function loadAllData() {
-    if (hasLoadedData) return;
-    if (!areComponentTemplatesReady()) return;
+  function loadReadySections() {
+    if (!loadedSections.experience && canLoadExperience()) {
+      loadedSections.experience = true;
+      loadExperience();
+    }
 
-    hasLoadedData = true;
-    loadExperience();
-    loadProjects();
-    loadSkills();
+    if (!loadedSections.projects && canLoadProjects()) {
+      loadedSections.projects = true;
+      loadProjects();
+    }
+
+    if (!loadedSections.skills && canLoadSkills()) {
+      loadedSections.skills = true;
+      loadSkills();
+    }
   }
 
   function waitForTemplatesAndLoad() {
-    if (hasLoadedData) return;
-
-    if (areComponentTemplatesReady()) {
-      loadAllData();
+    if (loadedSections.experience && loadedSections.projects && loadedSections.skills) {
       return;
     }
+
+    loadReadySections();
 
     window.setTimeout(waitForTemplatesAndLoad, 60);
   }
@@ -242,7 +265,7 @@
   // Initialize data loading when components are loaded
   function init() {
     window.addEventListener("components:loaded", function () {
-      loadAllData();
+      loadReadySections();
     });
 
     // Also bootstrap independently in case the event fired before this listener was attached.
