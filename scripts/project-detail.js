@@ -1,10 +1,20 @@
 (function () {
-  var scriptBaseUrl = (function () {
+  function getScriptBaseUrl(scriptFileName, defaultRelativePath) {
     var currentScript = document.currentScript;
     if (currentScript && currentScript.src) {
       return new URL("./", currentScript.src).href;
     }
-    return new URL("scripts/", window.location.href).href;
+
+    var scriptEl = document.querySelector('script[src*="' + scriptFileName + '"]');
+    if (scriptEl && scriptEl.src) {
+      return new URL("./", scriptEl.src).href;
+    }
+
+    return new URL(defaultRelativePath, window.location.href).href;
+  }
+
+  var scriptBaseUrl = (function () {
+    return getScriptBaseUrl("project-detail.js", "../scripts/");
   })();
 
   function resolveDataPath(fileName) {

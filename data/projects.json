@@ -72,5 +72,43 @@
       "Built SQLite persistence layer for save game data",
       "Optimized frame rendering for smooth 60fps gameplay"
     ]
+  },
+  {
+    "id": "cyclegan",
+    "title": "CycleGAN Image Translation",
+    "icon": "🧠",
+    "summary": "Designed and trained a CycleGAN-based image translation model with architectural optimizations and advanced loss tuning for high-quality style transfer.",
+    "timeframe": "Jan 2025 - May 2025",
+    "year": "2025",
+    "category": "Generative AI / Computer Vision",
+    "skills": ["Python", "PyTorch", "GANs", "Computer Vision", "Deep Learning"],
+    "details": "A deep learning project focused on unpaired image-to-image translation using CycleGAN. Includes architectural improvements, loss engineering, and training optimizations for enhanced visual quality.",
+    "image": "",
+    "achievements": [
+      "Trained CycleGAN for style transfer (real ↔ cartoon, young ↔ old)",
+      "Improved image quality via architectural changes (residual blocks, spectral norm)",
+      "Engineered multi-loss training (adversarial, cycle, identity, perceptual)",
+      "Optimized training with mixed precision (AMP) and LR scheduling",
+      "Reduced GMS score from 5.34 to 4.04 through experimentation"
+    ]
+  },
+  {
+    "id": "recommendation-system",
+    "title": "Recommendation System",
+    "icon": "📊",
+    "summary": "Built a collaborative filtering recommendation system using matrix factorization with bias modeling and clustering for interpretable insights.",
+    "timeframe": "Aug 2024 - Dec 2024",
+    "year": "2024",
+    "category": "Machine Learning / Recommender Systems",
+    "skills": ["Python", "PyTorch", "Scikit-learn", "SVD", "KMeans"],
+    "details": "A recommendation system leveraging matrix factorization to learn latent user-item representations, combined with clustering techniques for interpretability.",
+    "image": "",
+    "achievements": [
+      "Implemented SVD-based collaborative filtering for recommendations",
+      "Added bias-aware modeling to improve RMSE (~1.00)",
+      "Trained embedding-based models using PyTorch",
+      "Applied KMeans clustering on embeddings for user segmentation",
+      "Processed large datasets and visualized training dynamics"
+    ]
   }
 ]

@@ -133,6 +133,15 @@
         showAllRevealItems();
       }
     });
+
+    window.addEventListener("content:rendered", function () {
+      try {
+        runInitializers();
+      } catch (error) {
+        console.error("Post-render initialization failed:", error);
+        showAllRevealItems();
+      }
+    });
   }
 
   if (document.readyState === "loading") {

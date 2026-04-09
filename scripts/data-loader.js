@@ -5,12 +5,22 @@
 
 (function () {
   window.DataLoader = window.DataLoader || {};
-  var scriptBaseUrl = (function () {
+  function getScriptBaseUrl(scriptFileName, defaultRelativePath) {
     var currentScript = document.currentScript;
     if (currentScript && currentScript.src) {
       return new URL("./", currentScript.src).href;
     }
-    return new URL("scripts/", window.location.href).href;
+
+    var scriptEl = document.querySelector('script[src*="' + scriptFileName + '"]');
+    if (scriptEl && scriptEl.src) {
+      return new URL("./", scriptEl.src).href;
+    }
+
+    return new URL(defaultRelativePath, window.location.href).href;
+  }
+
+  var scriptBaseUrl = (function () {
+    return getScriptBaseUrl("data-loader.js", "scripts/");
   })();
 
   function resolveDataPath(fileName) {
@@ -56,6 +66,14 @@
           xhr.send();
         });
       });
+  }
+
+  function showSectionLoadError(containerId, message) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML =
+      '<article class="card"><p class="section-subtitle">' + message + "</p></article>";
   }
 
   function canLoadExperience() {
@@ -114,6 +132,7 @@
       })
       .catch(function (error) {
         console.error("Error loading experience:", error);
+        showSectionLoadError("experience-list", "Could not load experience data.");
       });
   }
 
@@ -125,6 +144,7 @@
       })
       .catch(function (error) {
         console.error("Error loading projects:", error);
+        showSectionLoadError("projects-list", "Could not load project data.");
       });
   }
 
@@ -136,6 +156,7 @@
       })
       .catch(function (error) {
         console.error("Error loading skills:", error);
+        showSectionLoadError("skills-list", "Could not load skills data.");
       });
   }
 
@@ -185,6 +206,8 @@
 
       container.appendChild(clone);
     });
+
+    window.dispatchEvent(new Event("content:rendered"));
   }
 
   function renderProjects(projects) {
@@ -241,6 +264,8 @@
 
       container.appendChild(clone);
     });
+
+    window.dispatchEvent(new Event("content:rendered"));
   }
 
   function renderSkills(skillGroups) {
@@ -272,6 +297,8 @@
 
       container.appendChild(clone);
     });
+
+    window.dispatchEvent(new Event("content:rendered"));
   }
 
   // Initialize data loading when components are loaded
