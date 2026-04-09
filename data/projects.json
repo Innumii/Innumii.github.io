@@ -56,24 +56,6 @@
     ]
   },
   {
-    "id": "urban-farm",
-    "title": "Urban Farm",
-    "icon": "&#127807;",
-    "summary": "Developed a fully functional Android game with a custom multithreaded architecture, concurrent game systems, and a robust local persistence layer.",
-    "timeframe": "Jan 2024 - May 2024",
-    "year": "2024",
-    "category": "Android game development",
-    "skills": ["Kotlin", "Java", "Android SDK", "SQLite", "Multithreading"],
-    "details": "A complete Android game built from the ground up with custom game engine architecture. Features farming simulation, trading mechanics, and local data persistence.",
-    "image": "",
-    "achievements": [
-      "Designed custom game engine with multithreaded system architecture",
-      "Implemented concurrent game state management",
-      "Built SQLite persistence layer for save game data",
-      "Optimized frame rendering for smooth 60fps gameplay"
-    ]
-  },
-  {
     "id": "cyclegan",
     "title": "CycleGAN Image Translation",
     "icon": "🧠",
@@ -109,6 +91,24 @@
       "Trained embedding-based models using PyTorch",
       "Applied KMeans clustering on embeddings for user segmentation",
       "Processed large datasets and visualized training dynamics"
+    ]
+  },
+  {
+    "id": "urban-farm",
+    "title": "Urban Farm",
+    "icon": "&#127807;",
+    "summary": "Developed a fully functional Android game with a custom multithreaded architecture, concurrent game systems, and a robust local persistence layer.",
+    "timeframe": "Jan 2024 - May 2024",
+    "year": "2024",
+    "category": "Android game development",
+    "skills": ["Kotlin", "Java", "Android SDK", "SQLite", "Multithreading"],
+    "details": "A complete Android game built from the ground up with custom game engine architecture. Features farming simulation, trading mechanics, and local data persistence.",
+    "image": "",
+    "achievements": [
+      "Designed custom game engine with multithreaded system architecture",
+      "Implemented concurrent game state management",
+      "Built SQLite persistence layer for save game data",
+      "Optimized frame rendering for smooth 60fps gameplay"
     ]
   }
 ]
