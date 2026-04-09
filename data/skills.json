@@ -1,22 +1,79 @@
 [
   {
     "group": "Languages",
-    "skills": ["Python", "Java", "Kotlin", "C++", "Go", "JavaScript", "SQL", "Google Apps Script", "VBA"]
+    "skills": [
+      "Python",
+      "Java",
+      "Kotlin",
+      "C++",
+      "Go",
+      "JavaScript",
+      "SQL",
+      "Google Apps Script",
+      "VBA"
+    ]
   },
   {
     "group": "Frameworks & Libraries",
-    "skills": ["Spring Boot", "React", "Svelte", "JDBC", "JPA", "Cucumber / Gherkin", "Selenium"]
+    "skills": [
+      "Spring Boot",
+      "React",
+      "Svelte",
+      "JDBC",
+      "JPA",
+      "Cucumber / Gherkin",
+      "Selenium",
+      "PyTorch",
+      "Scikit-learn",
+      "NumPy",
+      "Pandas"
+    ]
+  },
+  {
+    "group": "Machine Learning & AI",
+    "skills": [
+      "Deep Learning",
+      "Computer Vision",
+      "GANs (CycleGAN)",
+      "LSTM",
+      "Recommendation Systems",
+      "Matrix Factorization (SVD)",
+      "KMeans Clustering",
+      "Anomaly Detection"
+    ]
   },
   {
     "group": "Databases",
-    "skills": ["PostgreSQL", "MySQL", "SQLite", "RDS"]
+    "skills": [
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "AWS RDS"
+    ]
   },
   {
     "group": "Cloud & DevOps",
-    "skills": ["AWS (EC2/S3/RDS)", "Docker", "Terraform", "GitHub Actions", "CI/CD"]
+    "skills": [
+      "AWS (EC2/S3/RDS)",
+      "Docker",
+      "Terraform",
+      "GitHub Actions",
+      "CI/CD",
+      "Kubernetes"
+    ]
   },
   {
-    "group": "Other Tools",
-    "skills": ["Git", "Linux", "Jira", "REST APIs"]
+    "group": "Other Tools & Concepts",
+    "skills": [
+      "Git",
+      "Linux",
+      "Jira",
+      "REST APIs",
+      "Microservices",
+      "Multithreading",
+      "System Design",
+      "Event-Driven Architecture",
+      "Data Visualization (Grafana)"
+    ]
   }
 ]
